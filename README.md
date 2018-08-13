@@ -21,4 +21,5 @@ where µ  is the average value
 <a href="https://www.codecogs.com/eqnedit.php?latex={\displaystyle&space;\mu&space;=\sum&space;_{i=1}^{n}p_{i}x_{i}.}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?{\displaystyle&space;\mu&space;=\sum&space;_{i=1}^{n}p_{i}x_{i}.}" title="{\displaystyle \mu =\sum _{i=1}^{n}p_{i}x_{i}.}" /></a>
 
 **Mode:** is the value that appears most often.
+
 **Median:** is the value separating the higher half from the lower half of a data  sample.
