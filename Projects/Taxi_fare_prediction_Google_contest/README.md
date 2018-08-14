@@ -44,6 +44,15 @@ Then i switch to [haversine formula](https://en.wikipedia.org/wiki/Haversine_for
 
 ### Pickup timestamp
 
+Acording to [nyc.gov](https://www1.nyc.gov/nyc-resources/service/1271/yellow-taxi-fares) taxi fares have the following charges:
+
+* 50 cents for every fifth of a mile
+
+* 50 cents for every minute the taxi traveled less than 12 miles per hour
+
+* 50 cents night surcharge for travel from 8 PM to 6 AM
+
+* $1 for travel from 4 PM to 8 PM on weekdays only
 
 ## Outlier data
 
