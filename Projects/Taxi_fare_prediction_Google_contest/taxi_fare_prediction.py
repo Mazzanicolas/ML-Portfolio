@@ -10,7 +10,8 @@ import pandas                 as pd
 import numpy                  as np
 from datetime import datetime as dt
 from utils    import linear_distance, get_time_interval
-from matplotlib.gridspec import GridSpec
+from matplotlib.gridspec  import GridSpec
+from mpl_toolkits.mplot3d import Axes3D
 
 #Loading Dataset
 dataset = pd.read_csv('taxi_dataset_sample/taxi_dataset_sample.csv', nrows = 10000)
@@ -43,8 +44,6 @@ dataset['work_hour'] = dataset['pickup_datetime'].apply(
                                                 lambda date: date[0])
 dataset['night']     = dataset['pickup_datetime'].apply(
                                                 lambda date: date[1])
-dataset['day']       = dataset['pickup_datetime'].apply(
-                                                lambda date: date[2])
 #Remove date
 dataset = dataset.drop(['pickup_datetime'], axis=1)
 #Checking for outliers in the data
@@ -62,13 +61,13 @@ plt.boxplot(linear_distance)
 plt.title('linear_distance')
 plt.show()
 #Getting fare_amount outliner values
-fare_amount     = fare_amount[fare_amount < 22]
+fare_amount     = fare_amount[fare_amount < 22.25]
 fare_amount     = fare_amount[fare_amount > 0]
 #Getting passenger_count outliner values
 passenger_count = passenger_count[passenger_count < 4]
 passenger_count = passenger_count[passenger_count > 0]
 #Getting linear_distance outliner values
-linear_distance = linear_distance[linear_distance < 7800]
+linear_distance = linear_distance[linear_distance < 7895]
 linear_distance = linear_distance[linear_distance > 0]
 #Checking if outliners where removed succesfully
 plt.subplot(GridSpec(1, 3)[0, 0])
@@ -84,11 +83,17 @@ plt.show()
 del fare_amount, passenger_count, linear_distance
 #Applying changes to the dataset
 #Removing fare_amount outliner values
-dataset = dataset[dataset.fare_amount < 22]
+dataset = dataset[dataset.fare_amount < 22.25]
 dataset = dataset[dataset.fare_amount > 0]
 #Removing passenger_count outliner values
 dataset = dataset[dataset.passenger_count < 4]
 dataset = dataset[dataset.passenger_count > 0]
 #Removing linear_distance outliner values
-dataset = dataset[dataset.linear_distance < 7800]
+dataset = dataset[dataset.linear_distance < 7895]
 dataset = dataset[dataset.linear_distance > 0]
+#Checking updated dataset
+fig = plt.figure()
+ax  = fig.add_subplot(111, projection='3d')
+c   = (dataset.passenger_count=1)
+ax.scatter(dataset.fare_amount, dataset.passenger_count, dataset.linear_distance,c = c, cmap = 'coolwarm')
+plt.show()
