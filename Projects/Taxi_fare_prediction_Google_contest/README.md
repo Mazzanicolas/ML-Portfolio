@@ -54,7 +54,31 @@ Acording to [nyc.gov](https://www1.nyc.gov/nyc-resources/service/1271/yellow-tax
 
 * $1 for travel from 4 PM to 8 PM on weekdays only
 
+We're only going to consider the time range from 8 PM to 6 AM and from 4 PM to 8 PM (on weekdays) and with this crate new features for the dataset.
+
+**Note:** Im not adding a 3rd column with the remaining time frame to avoid the [dummy variable trap](http://www.algosome.com/articles/dummy-variable-trap-regression.html).
+
+**is_night** - `integer` 0 if date is between 8 PM and 6 AM, 1 otherwise.
+
+**is_weekday_work_hour** - `integer` 0 if date is between 4 PM to 8 PM and is a weekday, 1 otherwise.
+
+## Dataset 
+
+Now the dataset look's something like this
+
+![alt text](http://i1376.photobucket.com/albums/ah11/mazzanicolas/Screen%20Shot%202018-08-15%20at%201.00.57%20PM_zpsor1v03tk.png)
+
 ## Outlier data
 
-Checking the diferent values for outlier rows.
+Now let's check if we have some outlier data to remove, for this im going to plot box charts.
+
+![alt text](http://i1376.photobucket.com/albums/ah11/mazzanicolas/Screen%20Shot%202018-08-15%20at%201.10.37%20PM_zpsay7kcmet.png)
+
+We can see the following outliers:
+
+| Feature         | > 95th Percentile | < 5th Percentile |
+| --------------- |:-----------------:|:----------------:|
+| fare_amount     |  22.25            |     No Outlier   |
+| passenger_count |  3                |     No Outlier   |
+| linear_distance |  7895             |     No Outlier   |
 
