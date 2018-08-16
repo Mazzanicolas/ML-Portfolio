@@ -46,6 +46,8 @@ Then i switch to [haversine formula](https://en.wikipedia.org/wiki/Haversine_for
 
 Acording to [nyc.gov](https://www1.nyc.gov/nyc-resources/service/1271/yellow-taxi-fares) taxi fares have the following charges:
 
+* Standard City fare rate of $3.30
+
 * 50 cents for every fifth of a mile
 
 * 50 cents for every minute the taxi traveled less than 12 miles per hour
@@ -54,7 +56,7 @@ Acording to [nyc.gov](https://www1.nyc.gov/nyc-resources/service/1271/yellow-tax
 
 * $1 for travel from 4 PM to 8 PM on weekdays only
 
-We're only going to consider the time range from 8 PM to 6 AM and from 4 PM to 8 PM (on weekdays) and with this crate new features for the dataset.
+We're only going to consider the time range from 8 PM to 6 AM and from 4 PM to 8 PM (on weekdays) and with this crate new features for the dataset and now we now **fare_amounts** < 3.30 are outliers, we're going to remove this in the next section.
 
 **Note:** Im not adding a 3rd column with the remaining time frame to avoid the [dummy variable trap](http://www.algosome.com/articles/dummy-variable-trap-regression.html).
 
@@ -83,6 +85,7 @@ We can see the following outliers:
 | linear_distance |  7895             |     No Outlier   |
 
 In this case we want to remove this outliers because they're just noise.
+We're also removing **fare_amounts** < 3.30 as we mentioned in the previos section.
 
 ## Getting a representative dataset
 
