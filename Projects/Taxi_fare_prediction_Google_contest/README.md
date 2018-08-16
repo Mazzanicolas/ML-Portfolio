@@ -82,3 +82,8 @@ We can see the following outliers:
 | passenger_count |  3                |     No Outlier   |
 | linear_distance |  7895             |     No Outlier   |
 
+In this case we want to remove this outliers because they're just noise.
+
+## Getting a representative dataset
+
+Now that we have a better dataset we're going to get a smaller one with representative data. 
